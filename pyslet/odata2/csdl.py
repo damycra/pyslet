@@ -507,8 +507,7 @@ class NameTableMixin(DictionaryLike):
         contain the compounding character '.', however, you cannot
         declare "X" if you have already declared "X.Y" and vice versa."""
         if value.name in self.nameTable:
-            raise DuplicateName(
-                "%s already declared in scope %s" % (value.name, self.name))
+            return
         prefix = value.name + "."
         for key in self.nameTable:
             if key.startswith(prefix) or value.name.startswith(key + "."):
