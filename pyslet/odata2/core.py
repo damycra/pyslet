@@ -2073,9 +2073,8 @@ def _format_expand_list(expand):
     """Returns a list of unicode strings representing the *expand* rules."""
     result = []
     for k, v in dict_items(expand):
-        if not v:
-            result.append(k)
-        else:
+        result.append(k)
+        if v:
             result = result + list("%s/%s" % (k, x)
                                    for x in _format_expand_list(v))
     return result
